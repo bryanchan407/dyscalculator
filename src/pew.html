@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Riemann Sum Approximations</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="mb-8 text-3xl font-semibold text-gray-800 text-center">Riemann Visualization</h2>
+
+  <div>
+    <label for="function">Function:</label>
+    <input type="text" id="function" placeholder="Enter function f(x)">
+  </div>
+
+  <div>
+    <label for="a">a:</label>
+    <input type="number" id="a" value="-2">
+    <label for="b">b:</label>
+    <input type="number" id="b" value="3">
+    <label for="n">n:</label>
+    <input type="number" id="n" value="10">
+  </div>
+
+  <a onclick="calculateRiemannSums()"
+                    class="inline-block px-5 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 border-2">Generate
+                    Boxes</a>
+
+  <div id="results">
+    <p>Left Riemann Sum: <span id="left-sum">0</span></p>
+    <p>Right Riemann Sum: <span id="right-sum">0</span></p>
+    <p>Midpoint Riemann Sum: <span id="midpoint-sum">0</span></p>
+    <p>Trapezoidal Riemann Sum: <span id="trapezoidal-sum">0</span></p>
+  </div>
+
+  <canvas id="graph" width="600" height="400"></canvas>
+</body>
+</html>
