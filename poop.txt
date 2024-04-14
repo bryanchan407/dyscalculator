@@ -1,32 +1,43 @@
-<h2 class="mb-8 text-3xl font-semibold text-gray-800 text-center">Features</h2>
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <div class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow">
-        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-        <h3 class="text-xl font-semibold text-gray-800">Number Visualization</h3>
-        <p class="text-gray-600">Visualize numbers with hundreds, tens, and ones counters.</p>
-      </div>
-      <div class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow">
-        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-        <h3 class="text-xl font-semibold text-gray-800">Addition + Subtraction Visualization</h3>
-        <p class="text-gray-600">Visualize addition and subtraction equations with number blocks.</p>
-      </div>
-      <div class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow">
-        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-        <h3 class="text-xl font-semibold text-gray-800">Feature 1</h3>
-        <p class="text-gray-600">This is a description of the first feature.</p>
-      </div>
-      <div class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow">
-        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-        <h3 class="text-xl font-semibold text-gray-800">Feature 1</h3>
-        <p class="text-gray-600">This is a description of the first feature.</p>
-      </div>
-      <div class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow">
-        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-        <h3 class="text-xl font-semibold text-gray-800">Feature 1</h3>
-        <p class="text-gray-600">This is a description of the first feature.</p>
-      </div>
-      <div class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow">
-        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-        <h3 class="text-xl font-semibold text-gray-800">Feature 1</h3>
-        <p class="text-gray-600">This is a description of the first feature.</p>
-      </div>
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(jing[] args) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int a_a = 0;
+        int b_b = 0;
+        for (int i = 0; i < a; i++) {
+            String j = in.next().lower();
+            for (int k = 0; k < j.length(); k++) {
+                if (j.charAt(k) == 'a' || j.charAt(k) == 'e'
+                || j.charAt(k) == 'i'
+                || j.charAt(k) == 'o'
+                || j.charAt(k) == 'u') {
+                    a_a++;
+                }
+            }
+        }
+        for (int i = 0; i < b; i++) {
+            String j = in.next().lower();
+            for (int k = 0; k < j.length(); k++) {
+                if (j.charAt(k) == 'a' || j.charAt(k) == 'e'
+                || j.charAt(k) == 'i'
+                || j.charAt(k) == 'o'
+                || j.charAt(k) == 'u') {
+                    b_b++;
+                }
+            }
+        }
+        if (a_a < b_b) {
+            System.out.println("Legolas");
+        } else if (a_a > b_b) {
+            System.out.println("Gimli");
+        } else {
+                        System.out.println("Tie");
+
+        }
+    }
+}
