@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualize Addition and Subtraction</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      display: inline-block;
+      border: 1px solid black;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    .purple {
+      background-color: purple;
+    }
+
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <label for="xInput">Enter value for x (0-50): </label>
+  <input type="number" id="xInput" min="0" max="50" value="0">
+  <br>
+  <label for="yInput">Enter value for y (0-50): </label>
+  <input type="number" id="yInput" min="0" max="50" value="0">
+
+  <br>
+
+  <button onclick="generateBoxes()">Generate Boxes</button>
+  <div id="boxContainer"></div>
+
+  <script>
+    function generateBoxes() {
+      var x = parseInt(document.getElementById("xInput").value);
+      var y = parseInt(document.getElementById("yInput").value);
+
+      var boxContainer = document.getElementById("boxContainer");
+      boxContainer.innerHTML = '';
+
+      for (var i = 0; i < x; i++) {
+        var redBox = document.createElement("div");
+        redBox.classList.add("box", "red");
+        boxContainer.appendChild(redBox);
+      }
+
+      boxContainer.appendChild(document.createElement("br"));
+
+
+      for (var i = 0; i < y; i++) {
+        var blueBox = document.createElement("div");
+        blueBox.classList.add("box", "blue");
+        boxContainer.appendChild(blueBox);
+      }
+
+      boxContainer.appendChild(document.createElement("br"));
+
+      for (var i = 0; i < x + y; i++) {
+        var purpleBox = document.createElement("div");
+        purpleBox.classList.add("box", "purple");
+        boxContainer.appendChild(purpleBox);
+      }
+
+      boxContainer.appendChild(document.createElement("br"));
+
+      var difference = x - y;
+      difference = difference < 0 ? 0 : difference; // Ensure no negative value for green boxes
+
+      for (var i = 0; i < difference; i++) {
+        var greenBox = document.createElement("div");
+        greenBox.classList.add("box", "green");
+        boxContainer.appendChild(greenBox);
+      }
+    }
+  </script>
+
+</body>
+
+</html>
