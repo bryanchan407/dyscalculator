@@ -4,6 +4,7 @@ const num = document.getElementById("num");
 
 function showImage(){
     const ul = document.getElementById("mist");
+    
     while(ul.firstChild){
         ul.removeChild(ul.firstChild)
     }
@@ -25,7 +26,7 @@ function showImage(){
         ul.appendChild(clonedImg);
     }
 
-    
+
     for (let i = 0; i < arr[1]; i++) {
         let img = document.createElement('img');
         img.src="https://lh4.googleusercontent.com/proxy/IBut4pV7EA8xMJiVNxU17L5Q_kmaGNR26ewJ6Ei9Tp3ExD_n6YUpu4cdHl83eLOAdS9fYtVaVBzFmPINlOfXuMeEufVPy1oyNk0xd6BJhGdo1b7YkoHN";

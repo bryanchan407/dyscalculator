@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dyscalculator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+
     <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            overflow: auto;
+        }
+
         .box {
             width: 50px;
             height: 50px;
@@ -30,61 +39,61 @@
         .green {
             background-color: green;
         }
+
+        .graph-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .graph-container div {
+            flex: 1;
+        }
+
+        .graph-container canvas {
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="h-64 bg-gradient-to-r from-pink-400 to-purple-400">
 
     <div class="flex flex-row">
         <section href="#" class="flex-1 px-6 py-16 l:py-20 text-left">
             <div class="container mx-auto">
                 <h2 class="mb-4 text-4xl font-semibold text-gray-800 md:text-5xl">Dyscalculator</h2>
-                <p class="max-w-lg mb-8 text-gray-600">math you can understand</p>
+                <h4 class="max-w-lg mb-8 text-gray-600">math you can understand</h4>
                 <a href="#nviz"
-                    class="inline-block px-6 py-3 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Get
+                    class="inline-block px-6 mb-8 py-3 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">Get
                     Started</a>
+                <div id="calculator" style="width: 400px; height: 400px;"></div>
             </div>
         </section>
 
         <!-- Features Section -->
         <section class="flex-3 px-6 py-10">
             <div class="container mx-auto">
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <button href="#features"
+                <h2 class="mb-8 text-3xl font-semibold text-gray-800 text-center">Features</h2>
+                <h3 class="mb-4 text-2xl font-semibold text-gray-600 text-center"></h3>
+                <div class="grid gap-8 md:grid-cols-3 lg:grid-cols-2">
+                    <button href="#nviz"
                         class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
                         <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
                         <h3 class="text-xl font-semibold text-gray-800">Number Visualization</h3>
                         <p class="text-gray-600">Visualize numbers with hundreds, tens, and ones counters.</p>
                     </button>
-                    <button
+                    <button href="#nviz2"
                         class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
                         <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
                         <h3 class="text-xl font-semibold text-gray-800">Addition + Subtraction Visualization</h3>
                         <p class="text-gray-600">Visualize addition and subtraction equations with number blocks.</p>
                     </button>
-                    <button
+                    <button href="#nviz3"
                         class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
                         <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-                        <h3 class="text-xl font-semibold text-gray-800">Number Visualization</h3>
-                        <p class="text-gray-600">Visualize numbers with hundreds, tens, and ones counters.</p>
-                    </button>
-                    <button
-                        class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
-                        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-                        <h3 class="text-xl font-semibold text-gray-800">Addition + Subtraction Visualization</h3>
-                        <p class="text-gray-600">Visualize addition and subtraction equations with number blocks.</p>
-                    </button>
-                    <button
-                        class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
-                        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-                        <h3 class="text-xl font-semibold text-gray-800">Number Visualization</h3>
-                        <p class="text-gray-600">Visualize numbers with hundreds, tens, and ones counters.</p>
-                    </button>
-                    <button
-                        class="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600">
-                        <svg class="w-10 h-10 mb-2 text-indigo-600" xmlns="..."></svg>
-                        <h3 class="text-xl font-semibold text-gray-800">Addition + Subtraction Visualization</h3>
-                        <p class="text-gray-600">Visualize addition and subtraction equations with number blocks.</p>
+                        <h3 class="text-xl font-semibold text-gray-800">Derivative Visualization</h3>
+                        <p class="text-gray-600">Visualize the charts of parent functions and their derivatives.</p>
                     </button>
                 </div>
             </div>
@@ -95,16 +104,15 @@
     <div class="bg-gray-200 flex flex-row">
         <section href="#nviz" class="container mx-auto px-6 py-10">
             <h2 class="mb-8 text-3xl font-semibold text-gray-800 text-center"> Number Visualization</h2>
-            <div id="number">
+            <div id="number" class="flex-1">
                 <label for="y">Input a number:</label>
-                <input min=1 max =50 type="number" id="num">
+                <input min=1 max=50 type="number" id="num">
                 <a onclick="showImage()" href="#nviz"
                     class="inline-block px-5 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 border-2">Generate
                     Boxes</a>
             </div>
-            <div id="visualization">
+            <div id="visualization" class="flex-1">
                 <ul id="mist">
-        
                 </ul>
             </div>
         </section>
@@ -114,25 +122,56 @@
     <div class="bg-gray-300 flex flex-row">
         <section href="#nviz2" class="container mx-auto px-6 py-10">
             <h2 class="mb-8 text-3xl font-semibold text-gray-800 text-center">Addition + Subtraction Visualization</h2>
-            
+
             <div class="flex-1">
                 <div class="mb-2">
                     <label class="max-w-lg mb-8 text-gray-600" for="xInput">Enter value for x (0-50): </label>
                     <input type="number" id="xInput" min="0" max="50" value="0">
                 </div>
-    
+
                 <div class="mb-4">
                     <label class="max-w-lg mb-8 text-gray-600" for="yInput">Enter value for y (0-50): </label>
                     <input type="number" id="yInput" min="0" max="50" value="0">
                 </div>
-    
+
                 <a onclick="generateBoxes()" href="#nviz"
                     class="inline-block px-5 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 border-2">Generate
                     Boxes</a>
-    
+
             </div>
 
             <div class="flex-1 py-4 mb-16" id="boxContainer"></div>
+        </section>
+    </div>
+
+    <div class="bg-gray-400 flex flex-row">
+        <section href="#nviz3" class="container mx-auto px-6 py-10">
+            <h2 class="mb-8 text-3xl font-semibold text-gray-800 text-center">Derivative Visualization</h2>
+
+            <form id="inputForm">
+                <label for="valueA">Enter the value of a:</label>
+                <input type="number" id="valueA" name="valueA">
+                <label for="valueB">Enter the value of b:</label>
+                <input type="number" id="valueB" name="valueB">
+                <a onclick="generate()" href="#nviz"
+                    class="inline-block px-5 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 border-2">Generate
+                    Boxes</a>
+            </form>
+
+            <div class="graph-container">
+                <div>
+                    <canvas id="mainChart"></canvas>
+                    <p id="mainEquation"></p>
+
+                    <canvas id="derivativeChart"></canvas>
+                    <p id="derivativeEquation"></p>
+                </div>
+
+                <div>
+                    <canvas id="secondDerivativeChart"></canvas>
+                    <p id="secondDerivativeEquation"></p>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -140,4 +179,12 @@
 
 <script src="scripts/addition.js"></script>
 <script src="scripts/visualize.js"></script>
+<script src="scripts/derivative.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<script>
+    var elt = document.getElementById('calculator');
+    var calculator = Desmos.GraphingCalculator(elt);
+</script>
+
 </html>
